@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Shoxrux Mirjalilov</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+  <link href="{% static 'assets/img/icon.png' %}" rel="icon">
+  
+
+
+  
+  <link href="{% static 'style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="container">  
+    <form id="contact" action="" method="post"> {% csrf_token %}
+      <h3>SMS Django</h3>
+      <h4>Contact sms Django!</h4>
+      <fieldset>
+        <input placeholder="Your name"  class="form-control" type="text" name="name" tabindex="1" required autofocus>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Your Email Address"  class="form-control" type="email" name="email" tabindex="2" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Your Phone Number"  class="form-control" type="tel" name="phone" tabindex="3" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Subject" type="text"  class="form-control" name="subject" tabindex="4" required>
+      </fieldset>
+      <fieldset>
+        <textarea placeholder="Type your Message Here...."  class="form-control" name="message" tabindex="5" required></textarea>
+      </fieldset>
+      <fieldset>
+        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+      </fieldset>
+    </form>
+   
+    
+  </div>
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+     <script>
+    {% for msg in messages %}
+  swal(" {{msg}} ");
+    {% endfor %}
+    </script>
+</body>
+
+</html>
